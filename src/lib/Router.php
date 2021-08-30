@@ -34,6 +34,7 @@ class Router
     }
 
     public function run() {
-        static::getRouter()->match("{$this->constants['baseUrl']}/{$_GET['q']}", $_SERVER['REQUEST_METHOD'])['target']();
+        dump(static::getRouter()->match("{$this->constants['baseUrl']}/{$_GET['q']}", $_SERVER['REQUEST_METHOD']));
+        // static::getRouter()->match("{$this->constants['baseUrl']}/{$_GET['q']}", $_SERVER['REQUEST_METHOD'])['target']();
     }
 }
