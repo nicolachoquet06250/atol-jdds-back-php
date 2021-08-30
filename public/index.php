@@ -2,10 +2,13 @@
 
 use Atol\jdds\back\lib\Router;
 use DI\Container;
+use Symfony\Component\Dotenv\Dotenv;
 
 ini_set('display_errors', 1);
 
 require __DIR__ . '/../vendor/autoload.php';
+
+(new Dotenv())->load(__DIR__ . '/../.env');
 
 (new Router(new Container()))
     ->useConstant('baseUrl', 'https://atol-jdds.api.orange.nicolaschoquet.fr')
