@@ -14,7 +14,7 @@ class Router
 
     public static function getRouter() {
         if (is_null(static::$router)) {
-            static::$router = new AltoRouter(basePath: 'http://atol-jdds.api.localhost:8000');
+            static::$router = new AltoRouter();
         }
         return static::$router;
     }
@@ -35,9 +35,6 @@ class Router
 
     public function run() {
         static::getRouter()->setBasePath($this->constants['baseUrl']);
-        dump("{$this->constants['baseUrl']}/{$_GET['q']}", $_SERVER['REQUEST_METHOD'], $_SERVER['HTTP_HOST']);
-        dump(static::getRouter()->match("{$this->constants['baseUrl']}/{$_GET['q']}", $_SERVER['REQUEST_METHOD']));
-        dump(static::getRouter()->getRoutes());
-        // static::getRouter()->match("{$this->constants['baseUrl']}/{$_GET['q']}", $_SERVER['REQUEST_METHOD'])['target']();
+        static::getRouter()->match("{$this->constants['baseUrl']}/{$_GET['q']}", $_SERVER['REQUEST_METHOD'])['target']();
     }
 }
