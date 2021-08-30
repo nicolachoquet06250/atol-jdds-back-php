@@ -10,10 +10,8 @@ require __DIR__ . '/../vendor/autoload.php';
 
 (new Dotenv())->load(__DIR__ . '/../.env');
 
-dump($_ENV);
-
 (new Router(new Container()))
-    ->useConstant('baseUrl', 'https://atol-jdds.api.orange.nicolaschoquet.fr')
+    ->useConstant('baseUrl', $_ENV['BASE_URL'])
     ->useController('Atol\jdds\back\controllers\JddsController')
     ->useController('Atol\jdds\back\controllers\TypesController')
     ->useController('Atol\jdds\back\controllers\EnvironmentsController')
