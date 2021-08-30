@@ -34,6 +34,7 @@ class Router
     }
 
     public function run() {
+        static::getRouter()->setBasePath($this->constants['baseUrl']);
         dump("{$this->constants['baseUrl']}/{$_GET['q']}", $_SERVER['REQUEST_METHOD'], $_SERVER['HTTP_HOST']);
         dump(static::getRouter()->match("{$this->constants['baseUrl']}/{$_GET['q']}", $_SERVER['REQUEST_METHOD']));
         dump(static::getRouter()->getRoutes());
